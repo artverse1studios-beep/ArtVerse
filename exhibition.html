@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtVerse Studios - Exhibitions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '#0f172a', accent: '#c2410c' } } }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .section { display: none; animation: fadeIn 1s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .art-card { transition: transform 0.3s, box-shadow 0.3s; cursor: zoom-in; }
+        .art-card:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(0,0,0,0.15); }
+
+        /* Lightbox Styles */
+        #lightbox {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.95); z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: all 0.4s ease;
+        }
+        #lightbox.active { opacity: 1; visibility: visible; }
+        #lightbox img {
+            max-width: 90vw; max-height: 90vh;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border-radius: 8px;
+            transform: scale(0.3);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        #lightbox.active img { transform: scale(1); }
+        .close-lightbox {
+            position: absolute; top: 30px; right: 40px;
+            font-size: 40px; color: white; cursor: pointer;
+            transition: all 0.3s;
+        }
+        .close-lightbox:hover { transform: scale(1.2); color: #c2410c; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <header class="bg-primary text-white py-8 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-4xl font-bold mb-4">ArtVerse Studios Exhibitions</h1>
+            <p class="text-xl">Click any artwork to view full size • <a href="index.html" class="underline hover:text-accent">Back to Home</a></p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <!-- Global Artist Network  -->
+        <section id="global-network" class="section bg-white p-8 rounded-lg shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-6">Global Artist Network</h2>
+            <p class="text-lg mb-8">Click any artwork to enlarge</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Repeat  -->
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80" alt="Tokyo Dreams" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Tokyo Dreams</h3>
+                        <p class="text-sm text-gray-600 mb-3">Akira Sato • Digital • $4500</p>
+                        <p class="text-sm mb-4">Neon-lit surreal Tokyo skyline</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0048.jpg" alt="Sahara Whispers" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Sahara Whispers</h3>
+                        <p class="text-sm text-gray-600 mb-3">Aisha Rahman • Oil on Canvas • $3620</p>
+                        <p class="text-sm mb-4">Endless dunes under starlit skies</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0049.jpg" alt="Lavender Dusk " class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Lavender Dusk </h3>
+                        <p class="text-sm text-gray-600 mb-3">Lila Moreau • Acrylic on Linen • $5,900</p>
+                        <p class="text-sm mb-4">Provence fields dissolving into violet twilight</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0050.jpg" alt="Cairo Mirage" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Cairo Mirage</h3>
+                        <p class="text-sm text-gray-600 mb-3">Zara Al-Sayed • Watercolor & Gold Leaf • $4,800</p>
+                        <p class="text-sm mb-4">Dramatic Patagonian peaks under stormy turquoise skies.Ancient minarets melting into shimmering heat</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0051.jpg" alt="Patagonia Fury" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Patagonia Fury</h3>
+                        <p class="text-sm text-gray-600 mb-3"> Mateo Fernández • Oil on Canvas • $9,200</p>
+                        <p class="text-sm mb-4">Turquoise glaciers cracking under violent skies</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0052.jpg" alt="Havana Pulse" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Havana Pulse</h3>
+                        <p class="text-sm text-gray-600 mb-3">Diego Salazar • Mixed Media Collage • $1,800</p>
+                        <p class="text-sm mb-4">Havana street vibes fused with vintage Cuban posters.</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                 
+                <!-- Add more cards with images -->
+                <!-- ... -->
+            </div>
+        </section>
+        <!-- Nft Collaborations  -->
+         <section id="nft-collaborations" class="section bg-white p-8 rounded-lg shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-6">Nft Collaborations</h2>
+            <p class="text-lg mb-8">Click any artwork to enlarge</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Repeat-->
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0053.jpg" alt="Smoke & Silk" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Smoke & Silk</h3>
+                        <p class="text-sm text-gray-600 mb-3">Sofia Ivanov • Charcoal & Pastel • $3,900</p>
+                        <p class="text-sm mb-4">Ballerina dissolving into St. Petersburg fog</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0054.jpg" alt="Moonlit Koi" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Moonlit Koi</h3>
+                        <p class="text-sm text-gray-600 mb-3">Kenji Nakamura • Sumi-e Ink • $6,700</p>
+                        <p class="text-sm mb-4">Black ink fish gliding beneath silver ripples</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0055.jpg" alt="Ankara Queens " class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Ankara Queens </h3>
+                        <p class="text-sm text-gray-600 mb-3">Amara Okafor • Oil & Fabric • $8,100</p>
+                        <p class="text-sm mb-4">Provence fields dissolving into violet twilight</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0056.jpg" alt="Glitch Venus" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Glitch Venus</h3>
+                        <p class="text-sm text-gray-600 mb-3">Luca Rossi • Tempera & Digital • $11,500</p>
+                        <p class="text-sm mb-4">Renaissance portrait corrupted by modern code</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0057.jpg" alt="Favela Sunset" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Favela Sunset</h3>
+                        <p class="text-sm text-gray-600 mb-3"> Rafael Costa • Spray Paint & Resin • $7,400</p>
+                        <p class="text-sm mb-4">Rio rooftops drenched in molten orange</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0058.jpg" alt="Cosmic Castle " class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Cosmic Castle</h3>
+                        <p class="text-sm text-gray-600 mb-3">Nia Okonkwo • Acrylic Pour • $4,100</p>
+                        <p class="text-sm mb-4">Galaxy trapped inside liquid gold and midnight</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                 
+                <!-- Add more cards with images -->
+                <!-- ... -->
+            </div>
+         </section>
+         <!-- Art Exhibitions -->
+         <section id="art-exhibitions" class="section bg-white p-8 rounded-lg shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-6">Art Exhibitions</h2>
+            <p class="text-lg mb-8">Click any artwork to enlarge</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Repeat-->
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0059.jpg" alt="Golden Dome" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Golden Dome</h3>
+                        <p class="text-sm text-gray-600 mb-3">Noah Cohen • Oil & Gold Leaf • $13,800</p>
+                        <p class="text-sm mb-4">Jerusalem at twilight, every stone breathing light</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0060.jpg" alt="Moonlit Koi" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Moonlit Koi</h3>
+                        <p class="text-sm text-gray-600 mb-3">Kenji Nakamura • Sumi-e Ink • $6,700</p>
+                        <p class="text-sm mb-4">Black ink fish gliding beneath silver ripples</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0061.jpg" alt="Bamboo Ghost " class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Bamboo Ghost </h3>
+                        <p class="text-sm text-gray-600 mb-3">Mei-Ling Chen • Ink & Watercolor • $5,700</p>
+                        <p class="text-sm mb-4">elk vanishing into misty Chengdu forest</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0062.jpg" alt="Dune Memory" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Dune Memory</h3>
+                        <p class="text-sm text-gray-600 mb-3">Leila Hassan • Sand & Resin Layers • $6,800</p>
+                        <p class="text-sm mb-4">Sahara ripples frozen forever in 3D</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0063.jpg" alt="Neon Kanji Orbs" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Neon Kanji Orbs</h3>
+                        <p class="text-sm text-gray-600 mb-3"> Hiro Tanaka • Ceramic & LED • $12,900</p>
+                        <p class="text-sm mb-4">Floating porcelain spheres glowing ancient poetry</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0064.jpg" alt="Aurora Basilica" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Aurora Basilica</h3>
+                        <p class="text-sm text-gray-600 mb-3">Elena Petrova • Oil Glazing • $10,800</p>
+                        <p class="text-sm mb-4">St. Basil’s dancing under green northern lights</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                 
+                <!-- Add more cards with images -->
+                <!-- ... -->
+            </div>
+         </section>
+         <!-- Creative Patnerships  -->
+         <section id="creative-partnerships" class="section bg-white p-8 rounded-lg shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-6">Creative Patnerships </h2>
+            <p class="text-lg mb-8">Click any artwork to enlarge</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Repeat-->
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0065.jpg" alt="ArtVerse Eternal" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">ArtVerse Eternal</h3>
+                        <p class="text-sm text-gray-600 mb-3">Collective • Mixed Reality NFT • 5 ETH</p>
+                        <p class="text-sm mb-4">Living masterpiece that grows with every owner</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0066.jpg" alt="Venice 404" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Venice 404</h3>
+                        <p class="text-sm text-gray-600 mb-3">Matteo Bellini • Oil & Water • $10,700</p>
+                        <p class="text-sm mb-4">cicinatti Flower up close </p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0067.jpg" alt="Shanghai Neon Rain " class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Shanghai Neon Rain</h3>
+                        <p class="text-sm text-gray-600 mb-3">Li Wei • Ink & Neon • $7,200</p>
+                        <p class="text-sm mb-4">Pudong skyline melting in acid-rain color</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0068.jpg" alt="Reykjavik Aurora" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Reykjavik Aurora</h3>
+                        <p class="text-sm text-gray-600 mb-3">Freya Jonsdottir • Acrylic Glow • $7,700</p>
+                        <p class="text-sm mb-4">Northern lights painted with phosphorescent ink</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0069.jpg" alt="Neon Kanji Orbs" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Neon Kanji Orbs</h3>
+                        <p class="text-sm text-gray-600 mb-3"> Hiro Tanaka • Ceramic & LED • $12,900</p>
+                        <p class="text-sm mb-4">Whirling Sufi dissolving into golden light</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="art-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <img src="images/IMG-20251203-WA0070.jpg" alt="Aurora Basilica" class="w-full h-64 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-2">Aurora Basilica</h3>
+                        <p class="text-sm text-gray-600 mb-3">Elena Petrova • Oil Glazing • $10,800</p>
+                        <p class="text-sm mb-4">St. Basil’s dancing under green northern lights</p>
+                        <button onclick="alert('Added to cart!')" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+                 
+                <!-- Add more cards with images -->
+                <!-- ... -->
+            </div>
+         </section>
+
+
+        
+    </main>
+
+    <script >
+        // === LIGHTBOX LOGIC ===
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close-lightbox');
+
+        // Open lightbox when clicking any artwork image
+        document.querySelectorAll('.art-card img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // prevent background scroll
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // ESC key also closes
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // === SECTION VISIBILITY (same as before) ===
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+                const target = document.getElementById(hash);
+                if (target) {
+                    target.style.display = 'block';
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

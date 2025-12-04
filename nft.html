@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtVerse Studios • NFT Collections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .card-hover { transition: all 0.4s ease; }
+        .card-hover:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
+        .view-btn { transition: all 0.3s; }
+        .view-btn:hover { background-color: #c2410c; color: white; }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Full-Screen Hero -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
+        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=2400&q=90" 
+             alt="NFT Art Gallery" class="absolute inset-0 w-full h-full object-cover opacity-60">
+
+        <div class="relative z-10 text-center px-6 max-w-5xl">
+            <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+                Art Meets Blockchain
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Explore unique NFT collaborations and exhibitions connecting global artists in vibrant digital art experiences.
+            </p>
+        </div>
+
+        <!-- Subtle scroll hint -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+            <i class="fas fa-chevron-down text-3xl animate-bounce text-gray-500"></i>
+        </div>
+    </section>
+
+    <!-- NFT Cards Grid -->
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl md:text-6xl font-bold mb-6">NFT Showcase</h2>
+            <p class="text-xl text-gray-400">Discover innovative NFT art from talented global artists</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Card 1 -->
+            <div class="card-hover bg-gray-900 rounded-3xl overflow-hidden">
+                <img src="images/IMG-20251203-WA0043.jpg" 
+                     alt="NFT Physical Gallery" class="w-full h-80 object-cover">
+                <div class="p-8">
+                    <h3 class="text-3xl font-bold mb-3">Genesis Drop</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Limited edition 1/1 pieces blending physical and digital realms. Curated by ArtVerse Studios.
+                    </p>
+                    <a href="https://www.vaultorx.com/user/Artverse_studios" class="view-btn inline-block border-2 border-white px-10 py-4 rounded-full font-medium hover:bg-white hover:text-black transition">
+                        View Collection →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-hover bg-gray-900 rounded-3xl overflow-hidden">
+                <img src="images/IMG-20251203-WA0042.jpg" 
+                     alt="Neon NFT" class="w-full h-80 object-cover">
+                <div class="p-8">
+                    <h3 class="text-3xl font-bold mb-3">Cyber Dreams</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Futuristic generative art series featuring 10,000 unique pieces with animated traits.
+                    </p>
+                    <a href="https://www.vaultorx.com/user/Artverse_studios" class="view-btn inline-block border-2 border-white px-10 py-4 rounded-full font-medium">
+                        View Collection →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Digital Art Callout -->
+    <section class="py-20 bg-gradient-to-r from-purple-900/30 to-blue-900/30">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-6xl font-bold mb-8">Digital Art Revolution</h2>
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-10">
+                Experience vibrant digital art through our exclusive NFT collections. Own a piece of the future.
+            </p>
+            <a href="https://www.vaultorx.com/exhibitions/0678066b-342a-4a72-846b-9d95610d99c0" class="inline-block bg-orange-600 hover:bg-orange-500 text-white px-12 py-5 rounded-full text-xl font-bold transition">
+                Browse All NFTs
+            </a>
+        </div>
+    </section>
+
+
+      <!-- Navbar -->
+  <nav class="bg-black text-white fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="#" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-grey rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold text-lg">AT</span>
+            </div>
+            <span class="text-xl font-bold text-gray-900">Art Verse</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html#home" class="text-white hover:underline transition font-medium">Home</a>
+          <a href="nft.html" class="text-white hover:underline transition font-medium">Nft</a>
+          <a href="#about" class="text-white hover:underline transition font-medium">About</a>
+          <a href="#contact" class="text-white hover:underline transition font-medium">Contact</a>
+        </div>
+
+
+        <!-- Mobile Hamburger Button -->
+        <div class=" md:hidden flex items-center">
+          <button
+            id="menu-btn"
+            class="text-white  focus:outline-none transition"
+            aria-label="Toggle menu"
+          >
+            <!-- Menu Icon -->
+            <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <!-- Close Icon -->
+            <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+      <div class="px-4 pt-2 pb-3 space-y-1">
+        <a href="index.html#home" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
+          Home
+        </a>
+        <a href="nft.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
+          Nft
+        </a>
+        <a href="index.html#about" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
+          About
+        </a>
+        <a href="index.html#contact" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
+          Contact
+        </a>
+        
+      </div>
+    </div>
+  </nav>
+ <script src="script.js">
+   
+  </script>
+</body>
+</html>

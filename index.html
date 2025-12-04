@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtVerse Studios • Global Art & NFT Gallery</title>
+<meta name="description" content="Discover extraordinary art from 87 artists in 41 countries. Physical exhibitions, exclusive NFT drops, and living digital artworks. Own the future of art.">
+<link rel="canonical" href="">
+<meta property="og:title" content="ArtVerse Studios • Art Meets Blockchain">
+<meta property="og:description" content="Global art gallery connecting traditional masters with cutting-edge NFT creators.">
+<meta property="og:image" content="">
+<meta property="og:url" content="">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '#0f172a', accent: '#c2410c' } } }
+        }
+    </script>
+    <style>/* Custom styles that extend Tailwind */
+   
+    .hero-bg {
+        
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+                        url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&q=90') center/cover no-repeat fixed;
+        }
+        .fade-in {
+            animation: fadeIn 1.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .glow-btn {
+            box-shadow: 0 0 20px rgba(194, 65, 12, 0.4);
+            transition: all 0.4s ease;
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 30px rgba(194, 65, 12, 0.7);
+            transform: translateY(-3px);
+        }
+.artist-card:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item {
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn.active {
+    background-color: #4f46e5;
+    color: white;
+}
+
+/* Animation for hero section */
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}</style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+  <nav class="bg-black text-white fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="#" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-grey rounded-lg flex items-center justify-center">
+              <span class="text-white font-bold text-lg">AT</span>
+            </div>
+            <span class="text-xl font-bold text-gray-900">Art Verse</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="text-white hover:underline transition font-medium">Home</a>
+          <a href="nft.html" class="text-white hover:underline transition font-medium">Nft</a>
+          <a href="#about" class="text-white hover:underline transition font-medium">About</a>
+          <a href="#contact" class="text-white hover:underline transition font-medium">Contact</a>
+        </div>
+
+
+        <!-- Mobile Hamburger Button -->
+        <div class=" md:hidden flex items-center">
+          <button
+            id="menu-btn"
+            class="text-white  focus:outline-none transition"
+            aria-label="Toggle menu"
+          >
+            <!-- Menu Icon -->
+            <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <!-- Close Icon -->
+            <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+      <div class="px-4 pt-2 pb-3 space-y-1">
+        <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
+          Home
+        </a>
+        <a href="nft.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
+          Nft
+        </a>
+        <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
+          About
+        </a>
+        <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
+          Contact
+        </a>
+        
+      </div>
+    </div>
+  </nav>
+    
+    <main class="container mx-auto px-4 py-12">
+        <!-- Full-Viewport Hero -->
+         <div id="home" class="bg-black text-white overflow-x-hidden">
+            <section class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70"></div>
+        
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <!-- Main Title -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none opacity-0 fade-in" style="font-family: 'Playfair Display', serif;">
+                ARTVERSE<br>
+                <span class="text-4xl md:text-6xl lg:text-7xl text-orange-600 tracking-wider">STUDIOS</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="mt-8 text-lg md:text-2xl font-light opacity-0 fade-in" style="animation-delay: 0.6s; font-family: 'Cormorant Garamond', serif;">
+                Where Global Artists Collide, Create & Conquer
+            </p>
+
+            <!-- Tagline -->
+            <p class="mt-4 text-sm md:text-lg tracking-widest uppercase opacity-0 fade-in text-orange-400" style="animation-delay: 1s; letter-spacing: 0.4em;">
+                Exhibitions • NFT Collaborations • Creative Partnerships
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center opacity-0 fade-in" style="animation-delay: 1.4s;">
+                <a href="exhibition.html#global-network" class="bg-orange-700 hover:bg-orange-600 text-white px-10 py-5 rounded-full text-lg font-medium glow-btn uppercase tracking-wider transition">
+                    Enter the Exhibition
+                </a>
+                <a href="#contact" class="border-2 border-orange-600 text-orange-400 hover:bg-orange-600 hover:text-white px-10 py-5 rounded-full text-lg font-medium uppercase tracking-wider transition">
+                    Submit Inquiry
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 opacity-0 fade-in" style="animation-delay: 2s;">
+                <i class="fas fa-chevron-down text-3xl animate-bounce"></i>
+            </div>
+        </div>
+    </section>
+         </div>
+    
+         <!-- Exhibitions -->
+          <section id="exhibitions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">Dive Into Our Exhibitions</h2>
+            <p class="text-lg text-center mb-12 max-w-3xl mx-auto">Explore curated collections and immersive art experiences. Click a link to view a focused section of our extensive exhibition archive.</p>
+            <div class="grid md:grid-cols-4 gap-8">
+                <a href="exhibition.html#global-network" class="bg-gray-50 p-6 rounded-lg shadow-md text-center hover:bg-accent hover:text-white transition">
+                    <i class="fas fa-globe text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Global Artist Network</h3>
+                    <p>Connect with worldwide talents and collaborations.</p>
+                </a>
+                <a href="exhibition.html#nft-collaborations" class="bg-gray-50 p-6 rounded-lg shadow-md text-center hover:bg-accent hover:text-white transition">
+                    <i class="fas fa-coins text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">NFT Collaborations</h3>
+                    <p>Digital art frontiers and blockchain innovations.</p>
+                </a>
+                <a href="exhibition.html#art-exhibitions" class="bg-gray-50 p-6 rounded-lg shadow-md text-center hover:bg-accent hover:text-white transition">
+                    <i class="fas fa-palette text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Art Exhibitions</h3>
+                    <p>Curated global showcases and events.</p>
+                </a>
+                <a href="exhibition.html#creative-partnerships" class="bg-gray-50 p-6 rounded-lg shadow-md text-center hover:bg-accent hover:text-white transition">
+                    <i class="fas fa-handshake text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Creative Partnerships</h3>
+                    <p>Building networks for artistic growth.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+        <!-- Featured Artists -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured Artists</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="artist-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <img src="http://static.photos/people/640x360/1" alt="Artist" class="w-full h-64 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Sophia Laurent</h3>
+                    <p class="text-gray-600 mb-4">Contemporary Abstract</p>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                        View Works <i data-feather="chevron-right" class="ml-1"></i>
+                    </a>
+                </div>
+                <div class="artist-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <img src="http://static.photos/people/640x360/2" alt="Artist" class="w-full h-64 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Marcus Chen</h3>
+                    <p class="text-gray-600 mb-4">Modern Impressionist</p>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                        View Works <i data-feather="chevron-right" class="ml-1"></i>
+                    </a>
+                </div>
+                <div class="artist-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <img src="http://static.photos/people/640x360/3" alt="Artist" class="w-full h-64 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Elena Rodriguez</h3>
+                    <p class="text-gray-600 mb-4">Mixed Media</p>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                        View Works <i data-feather="chevron-right" class="ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Gallery -->
+    <section id="gallery" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary">Explore Our Gallery</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="relative group cursor-pointer">
+                    <img src="images/IMG-20251203-WA0045.jpg" alt="Global Exhibition" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition flex items-center justify-center rounded-lg">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                    <p class="mt-2 text-center">Worldwide Showcase</p>
+                </div>
+                <div class="relative group cursor-pointer">
+                    <img src="images/IMG-20251203-WA0046.jpg" alt="NFT Artwork" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition flex items-center justify-center rounded-lg">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                    <p class="mt-2 text-center">Digital Innovations</p>
+                </div>
+                <div class="relative group cursor-pointer">
+                    <img src="images/IMG-20251203-WA0047.jpg" alt="Creative Partnership" class="w-full h-64 object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition flex items-center justify-center rounded-lg">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                    <p class="mt-2 text-center">Collaborative Creations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="mb-20">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Our Collection</h2>
+                <div class="flex space-x-2">
+                    <button class="filter-btn active px-4 py-2 rounded-lg bg-indigo-600 text-white">All</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300">Current</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300">Past</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300">Ongoing</button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
+                <!-- Artworks will be loaded here via JavaScript -->
+            </div>
+        </section>
+        <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-10">Our Story</h2>
+
+        <!-- Truncated version (as per preview before button click) -->
+        <p id="story-preview" class="text-lg md:text-xl text-gray-700 leading-relaxed">
+            Born in the electric haze of a 2017 Los Angeles warehouse, ArtVerse Studios didn’t start with a business plan. It started with a dare.
+            <span id="dots" class="font-bold">...</span>
+        </p>
+
+        <!-- Full hidden story -->
+        <p id="full-story" class="text-lg md:text-xl text-gray-700 leading-relaxed hidden">
+            Born in the electric haze of a 2017 Los Angeles warehouse, ArtVerse Studios didn’t start with a business plan. It started with a dare.<br><br>
+
+            two strangers met on a now-defunct Discord server and made a pact: tear down every wall between traditional galleries and the wild frontier of digital art.<br><br>
+
+            No gatekeepers. No ivory towers. Just raw, boundary-breaking work that belongs to the world.<br><br>
+
+            Eight years later, that midnight promise has exploded into a living, breathing global movement.<br><br>
+
+            We’ve turned abandoned subway stations into pop-up NFT galleries, projected moving paintings onto the cliffs of Santorini at midnight, flown collectors to the Sahara for one-night-only desert exhibitions, and minted living artworks that evolve with their owners. We’ve sold out drops in 11 minutes, watched a single piece travel from a favela rooftop to the walls of the Louvre’s digital wing, and seen artists who once painted on cardboard now command six-figure auctions in ETH and canvas alike.<br><br>
+
+            Today ArtVerse Studios is home to 87 fiercely independent creators from 41 countries, speaking 29 languages, working across every medium imaginable (oil, code, fire, ice, recycled ocean plastic, and things that haven’t been named yet).<br><br>
+
+            But the mission has never changed:<br><br>
+
+            To hunt down the artists who make your pulse race, give them absolute freedom, and deliver their work straight into your hands (whether that’s a framed canvas, a glowing screen, or a living token in your wallet).<br><br>
+
+            This isn’t just a gallery.<br>
+            This is where art escapes gravity.<br><br>
+
+            Welcome to the Verse.<br>
+            We’ve been waiting for you.
+        </p>
+
+        <!-- Learn More / Show Less Button -->
+        <button id="toggle-btn"
+                class="mt-8 inline-block bg-accent text-white px-10 py-4 rounded-full font-semibold hover:bg-orange-700 transition">
+            Learn More
+        </button>
+    </div>
+</section>
+
+        <!-- About Section -->
+        <section id="about" class="mb-20 bg-white p-12 rounded-xl shadow-md">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="http://static.photos/studio/1200x630/5" alt="Our Studio" class="rounded-xl">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+                    <p class="text-gray-600 mb-4">Founded in 2017, ArtVerse Studio began as a small collective of passionate artists seeking to create a space where creativity could flourish without boundaries.</p>
+                    <p class="text-gray-600 mb-6">Today, we represent over 87 artists worldwide and have curated exhibitions in major cities across three continents. Our mission remains the same: to connect art lovers with extraordinary talent.</p>
+                    <a href="#story-preview" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                        Learn More <i data-feather="chevron-right" class="ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="about-2" class="mb-20 bg-white p-12 rounded-xl shadow-md">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="http://static.photos/studio/1200x630/5" alt="Our Studio" class="rounded-xl">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Our Artistic Mission</h2>
+                    <p class="text-gray-600 mb-4">Founded in 2010, ArtVerse Studio began as a small collective of passionate artists seeking to create a space where creativity could flourish without boundaries.</p>
+                    <p class="text-gray-600 mb-6">We strive to foster a culture of creativity and collaboration, showcasing a kaleidoscope of diverse talents and promoting art in its many forms through engaging events, innovative digital platforms, and immersive experiences that spark imagination, inspire connection, and nurture artistic growth, ultimately cultivating a vibrant ecosystem that celebrates the beauty of human expression</p>
+                    <a href="#about" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                        Learn More <i data-feather="chevron-right" class="ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Current Exhibition -->
+        <section class="mb-20">
+            <div class="bg-accent text-white p-8 rounded-xl">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-6 md:mb-0">
+                        <h2 class="text-2xl font-bold mb-2">Current Exhibition</h2>
+                        <p class="text-indigo-100">"Boundaries of Perception" - Until June 30th</p>
+                    </div>
+                    <a href="#exhibitions" class="bg-white text-indigo-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition duration-300 inline-flex items-center">
+                        View Details <i data-feather="arrow-right" class="ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-white text-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Submit Your Inquiry</h2>
+            <form class="max-w-lg mx-auto space-y-4" action="https://formspree.io/f/xqarbrkl" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded bg-white/10 border border-white/30">
+                <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded bg-white/10 border border-white/30">
+                <textarea name="message" placeholder="Tell us about your exhibition, collaboration, or idea..." rows="5" required class="w-full p-3 rounded bg-white/10 border border-white/30"></textarea>
+                <button type="submit" class="w-full bg-accent text-white py-3 rounded font-semibold hover:bg-orange-700 transition">Send Message</button>
+            </form>
+            <div class="flex flex-wrap items-center justify-center gap-5 md:gap-8 text-gray-300 text-sm md:text-base">
+  <!-- Email -->
+  <div class="flex items-center gap-2">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-500">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
+    <a href="mailto:artverse1.studios@gmail.com"
+       class="font-medium hover:text-orange-500 transition underline">
+      support@artversestudios.store
+    </a>
+  </div>
+
+  <!-- Separator (dot) -->
+  <span class="hidden sm:block text-gray-600">•</span>
+
+  <!-- Instagram – Logo always visible + handle -->
+  <a href="https://www.instagram.com/artversestudios_?igsh=MXFzZGx6c2ZqY2xkaA=="
+     target="_blank" rel="noopener"
+     class="flex items-center gap-3 text-orange-500 hover:text-orange-100 transition group">
+     
+    <!-- Instagram Logo – Always visible, orange on hover -->
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+         stroke-width="1.8" class="text-orange-500 group-hover:text-orange-100 transition">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="5"/>
+      <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
+    </svg>
+
+    <!-- Instagram Handle -->
+    <span class="font-medium">@artversestudios_</span>
+  </a>
+</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 ArtVerse Studios. All rights reserved. | California-Based Global Art Hub</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="hover:text-accent"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-accent"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="hover:text-accent"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+    <custom-footer></custom-footer>
+    
+    <script src="script.js"></script>
+    
+    <script>feather.replace();</script>
+</body>
+</html>
