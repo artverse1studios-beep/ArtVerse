@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const artworks = [
         { id: 1, title: "Whispers of Dawn", artist: "Sophia Laurent", year: 2023, category: "current", image: "http://static.photos/art/640x360/101" },
         { id: 2, title: "Mountain Snow", artist: "Mac-Donald", year: 2023, category: "past", image: "images/IMG-20251203-WA0044.jpg" },
-        { id: 3, title: "Fragmented Reality", artist: "Elena Rodriguez", year: 2023, category: "ongoing", image: "http://static.photos/art/640x360/103" },
-        { id: 4, title: "Silent Reverie", artist: "Sophia Laurent", year: 2021, category: "past", image: "http://static.photos/art/640x360/104" },
-        { id: 5, title: "Chromatic Dreams", artist: "Marcus Chen", year: 2023, category: "current", image: "http://static.photos/art/640x360/105" },
-        { id: 6, title: "Ephemeral Bonds", artist: "Elena Rodriguez", year: 2022, category: "past", image: "http://static.photos/art/640x360/106" },
+        { id: 3, title: "Fragmented Reality", artist: "Elena Rodriguez", year: 2023, category: "ongoing", image: "images/IMG-20251203-WA0071.jpg" },
+        { id: 4, title: "Silent Reverie", artist: "Sophia Laurent", year: 2021, category: "past", image: "images/IMG-20251203-WA0072.jpg" },
+        { id: 5, title: "Chromatic Dreams", artist: "Marcus Chen", year: 2023, category: "current", image: "images/IMG-20251203-WA0073.jpg" },
+        { id: 6, title: "Ephemeral Bonds", artist: "Elena Rodriguez", year: 2022, category: "past", image: "images/IMG-20251203-WA0074.jpg" },
     ];
 
     const galleryGrid = document.querySelector('.gallery-grid');
