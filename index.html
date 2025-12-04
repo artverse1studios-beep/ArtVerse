@@ -76,70 +76,52 @@
 }</style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navbar -->
-  <nav class="bg-black text-white fixed w-full top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        
-        <!-- Logo -->
-        <div class="flex items-center">
-          <a href="#" class="flex items-center space-x-2">
-            <div class="w-8 h-8 bg-grey rounded-lg flex items-center justify-center">
-              <span class="text-white font-bold text-lg">AT</span>
-            </div>
-            <span class="text-xl font-bold text-gray-900">Art Verse</span>
-          </a>
-        </div>
+    <nav class="bg-black text-white fixed inset-x-0 top-0 z-50">
+  <div class="w-full px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="#" class="flex items-center space-x-2">
+          <div class="w-8 h-8 bg-gray-700 rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-lg">AT</span>
+          </div>
+          <span class="text-xl font-bold">ArtVerse</span>
+        </a>
+      </div>
 
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="text-white hover:underline transition font-medium">Home</a>
-          <a href="nft.html" class="text-white hover:underline transition font-medium">Nft</a>
-          <a href="#about" class="text-white hover:underline transition font-medium">About</a>
-          <a href="#contact" class="text-white hover:underline transition font-medium">Contact</a>
-        </div>
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="hover:text-orange-500 transition font-medium">Home</a>
+        <a href="nft.html" class="hover:text-orange-500 transition font-medium">NFT</a>
+        <a href="#about" class="hover:text-orange-500 transition font-medium">About</a>
+        <a href="#contact" class="hover:text-orange-500 transition font-medium">Contact</a>
+      </div>
 
-
-        <!-- Mobile Hamburger Button -->
-        <div class=" md:hidden flex items-center">
-          <button
-            id="menu-btn"
-            class="text-white  focus:outline-none transition"
-            aria-label="Toggle menu"
-          >
-            <!-- Menu Icon -->
-            <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-            <!-- Close Icon -->
-            <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
+      <!-- Mobile Hamburger Button -->
+      <div class="md:hidden flex items-center">
+        <button id="menu-btn" class="text-white focus:outline-none transition" aria-label="Toggle menu">
+          <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
     </div>
+  </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
-      <div class="px-4 pt-2 pb-3 space-y-1">
-        <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
-          Home
-        </a>
-        <a href="nft.html" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
-          Nft
-        </a>
-        <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
-          About
-        </a>
-        <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md transition font-medium">
-          Contact
-        </a>
-        
-      </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-black border-t border-gray-800">
+    <div class="px-4 pt-2 pb-3 space-y-1">
+      <a href="#home" class="block px-3 py-3 text-white hover:bg-gray-900 rounded-md transition font-medium">Home</a>
+      <a href="nft.html" class="block px-3 py-3 text-white hover:bg-gray-900 rounded-md transition font-medium">NFT</a>
+      <a href="#about" class="block px-3 py-3 text-white hover:bg-gray-900 rounded-md transition font-medium">About</a>
+      <a href="#contact" class="block px-3 py-3 text-white hover:bg-gray-900 rounded-md transition font-medium">Contact</a>
     </div>
-  </nav>
-    
+  </div>
+</nav>
     <main class="w-screen mx-auto overflow-x-hidden">
   <!-- Full-Viewport Hero – True Edge-to-Edge -->
   <div id="home" class="hero-bg relative bg-black min-h-screen w-screen text-white overflow-hidden">
