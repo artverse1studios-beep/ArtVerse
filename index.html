@@ -22,7 +22,7 @@
         }
     </script>
     <style>/* Custom styles that extend Tailwind */
-   
+    
     .hero-bg {
         
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
@@ -140,47 +140,55 @@
     </div>
   </nav>
     
-    <main class="container mx-auto px-4 py-12">
-        <!-- Full-Viewport Hero -->
-         <div id="home" class="bg-black text-white overflow-x-hidden">
-            <section class="hero-bg min-h-screen flex items-center justify-center relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70"></div>
-        
-        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-            <!-- Main Title -->
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none opacity-0 fade-in" style="font-family: 'Playfair Display', serif;">
-                ARTVERSE<br>
-                <span class="text-4xl md:text-6xl lg:text-7xl text-orange-600 tracking-wider">STUDIOS</span>
-            </h1>
-
-            <!-- Subtitle -->
-            <p class="mt-8 text-lg md:text-2xl font-light opacity-0 fade-in" style="animation-delay: 0.6s; font-family: 'Cormorant Garamond', serif;">
-                Where Global Artists Collide, Create & Conquer
-            </p>
-
-            <!-- Tagline -->
-            <p class="mt-4 text-sm md:text-lg tracking-widest uppercase opacity-0 fade-in text-orange-400" style="animation-delay: 1s; letter-spacing: 0.4em;">
-                Exhibitions • NFT Collaborations • Creative Partnerships
-            </p>
-
-            <!-- CTA Buttons -->
-            <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center opacity-0 fade-in" style="animation-delay: 1.4s;">
-                <a href="exhibition.html#global-network" class="bg-orange-700 hover:bg-orange-600 text-white px-10 py-5 rounded-full text-lg font-medium glow-btn uppercase tracking-wider transition">
-                    Enter the Exhibition
-                </a>
-                <a href="#contact" class="border-2 border-orange-600 text-orange-400 hover:bg-orange-600 hover:text-white px-10 py-5 rounded-full text-lg font-medium uppercase tracking-wider transition">
-                    Submit Inquiry
-                </a>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 opacity-0 fade-in" style="animation-delay: 2s;">
-                <i class="fas fa-chevron-down text-3xl animate-bounce"></i>
-            </div>
-        </div>
-    </section>
-         </div>
+    <main class="w-screen mx-auto overflow-x-hidden">
+  <!-- Full-Viewport Hero – True Edge-to-Edge -->
+  <div id="home" class="hero-bg relative bg-black min-h-screen w-screen text-white overflow-hidden">
     
+    <section class="min-h-screen w-screen flex items-center justify-center flex relative">
+      
+      <!-- Full-bleed background gradient (optional image can go here) -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70"></div>
+      
+      <!-- Optional: Full-bleed background image (uncomment if you want) -->
+        
+
+      <!-- Content -->
+      <div class="relative z-10 text-center px-6 max-w-5xl mx-auto w-full">
+        <!-- Main Title -->
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none opacity-0 fade-in" style="font-family: 'Playfair Display', serif;">
+          ARTVERSE<br>
+          <span class="text-4xl md:text-6xl lg:text-7xl text-orange-600 tracking-wider">STUDIOS</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="mt-8 text-lg md:text-2xl font-light opacity-0 fade-in" style="animation-delay: 0.6s; font-family: 'Cormorant Garamond', serif;">
+          Where Global Artists Collide, Create & Conquer
+        </p>
+
+        <!-- Tagline -->
+        <p class="mt-4 text-sm md:text-lg tracking-widest uppercase opacity-0 fade-in text-orange-400" style="animation-delay: 1s; letter-spacing: 0.4em;">
+          Exhibitions • NFT Collaborations • Creative Partnerships
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center opacity-0 fade-in" style="animation-delay: 1.4s;">
+          <a href="exhibition.html#global-network" class="bg-orange-700 hover:bg-orange-600 text-white px-10 py-5 rounded-full text-lg font-medium glow-btn uppercase tracking-wider transition">
+            Enter the Exhibition
+          </a>
+          <a href="#contact" class="border-2 border-orange-600 text-orange-400 hover:bg-orange-600 hover:text-white px-10 py-5 rounded-full text-lg font-medium uppercase tracking-wider transition">
+            Submit Inquiry
+          </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 fade-in" style="animation-delay: 2s;">
+          <i class="fas fa-chevron-down text-3xl animate-bounce"></i>
+        </div>
+      </div>
+    </section>
+  </div>
+    </main>
+    <main class="container mx-auto px-4 py-12">
          <!-- Exhibitions -->
           <section id="exhibitions" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -326,7 +334,7 @@
         <section id="about" class="mb-20 bg-white p-12 rounded-xl shadow-md">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
-                    <img src="http://static.photos/studio/1200x630/5" alt="Our Studio" class="rounded-xl">
+                    <img src="images/WhatsApp Image 2025-12-03 at 16.13.08_fc944019.jpg" alt="Our Studio" class="rounded-xl">
                 </div>
                 <div class="md:w-1/2">
                     <h2 class="text-3xl font-bold mb-6">Our Story</h2>
@@ -341,7 +349,7 @@
         <section id="about-2" class="mb-20 bg-white p-12 rounded-xl shadow-md">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
-                    <img src="http://static.photos/studio/1200x630/5" alt="Our Studio" class="rounded-xl">
+                    <img src="images/WhatsApp Image 2025-12-03 at 16.13.08_fc944019.jpg" alt="Our Studio" class="rounded-xl">
                 </div>
                 <div class="md:w-1/2">
                     <h2 class="text-3xl font-bold mb-6">Our Artistic Mission</h2>
@@ -373,7 +381,7 @@
     <section id="contact" class="py-20 bg-white text-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12">Submit Your Inquiry</h2>
-            <form class="max-w-lg mx-auto space-y-4" action="https://formspree.io/f/xqarbrkl" method="POST">
+            <form class="max-w-lg mx-auto space-y-4" action="https://formspree.io/f/xdkqdkvn" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded bg-white/10 border border-white/30">
                 <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded bg-white/10 border border-white/30">
                 <textarea name="message" placeholder="Tell us about your exhibition, collaboration, or idea..." rows="5" required class="w-full p-3 rounded bg-white/10 border border-white/30"></textarea>
@@ -386,7 +394,7 @@
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
       <polyline points="22,6 12,13 2,6"/>
     </svg>
-    <a href="mailto:artverse1.studios@gmail.com"
+    <a href="mailto:Support@artversestudios.store"
        class="font-medium hover:text-orange-500 transition underline">
       support@artversestudios.store
     </a>
@@ -434,3 +442,4 @@
 </body>
 
 </html>
+
