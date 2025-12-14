@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: artverse1studios-beep/ArtVerse  
+  branch: main  
+  base_url: https://www.artversestudio.org
+
+media_folder: "images/campaigns"
+public_folder: "/images/campaigns"
+
+collections:
+  - name: "campaigns"
+    label: "Campaigns (Artists)"
+    folder: "data/campaigns"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Artist Name", name: "artist_name", widget: "string" }
+      - { label: "Intro (short bio of the artist's work)", name: "intro", widget: "markdown" }
+      - { label: "Instagram Post/Link", name: "instagram_link", widget: "string" }
+      - { label: "Picture (artist portrait or artwork)", name: "picture", widget: "image", required: true }
