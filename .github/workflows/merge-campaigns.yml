@@ -1,0 +1,36 @@
+name: Merge Campaigns to JSON
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/campaigns/**'
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Merge YAML to JSON
+        run: |
+          npm install js-yaml
+          node -e "
+            const fs = require('fs');
+            const yaml = require('js-yaml');
+            const campaigns = [];
+            fs.readdirSync('data/campaigns').forEach(file => {
+              if (file.endsWith('.yml')) {
+                const data = yaml.load(fs.readFileSync('data/campaigns/' + file, 'utf8'));
+                campaigns.push(data);
+              }
+            });
+            fs.writeFileSync('data/campaigns.json', JSON.stringify(campaigns, null, 2));
+          "
+      - name: Commit JSON
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Auto-merge campaigns to JSON
