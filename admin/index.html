@@ -4,9 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ArtVerse Studio Content Manager</title>
-  <style>body{margin:0}</style>
+  <style>body { margin: 0; }</style>
 </head>
 <body>
-  <script src="https://unpkg.com/sveltia-cms/dist/sveltia-cms.js"></script>
+  <!-- Load Sveltia CMS -->
+  <script type="module">
+    import CMS from 'https://unpkg.com/sveltia-cms/dist/sveltia-cms.js';
+    CMS.init({ configUrl: '/admin/config.yml' });
+  </script>
 </body>
 </html>
