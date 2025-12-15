@@ -1,0 +1,8 @@
+[
+  {
+    "artist_name": "Your Artist Name",
+    "intro": "Your intro bio text here (can be multi-line)",
+    "instagram_link": "https://www.instagram.com/your-link/",
+    "picture": "/images/campaigns/your-uploaded-image-filename.jpg"
+  }
+]
