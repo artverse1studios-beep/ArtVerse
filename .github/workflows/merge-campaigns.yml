@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' # Use the latest version of Python 3
+      - name: Install PyYAML dependency
+        run: pip install PyYAML
       - name: Merge YAML to JSON
         run: |
           import os
