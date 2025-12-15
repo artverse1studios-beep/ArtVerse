@@ -376,8 +376,7 @@
     <!--new added scripts   -->
     <script>
   async function loadCampaigns() {
-    const data = await response.json();
-const campaigns = data.artists || [];
+      const campaigns = await response.json();
     if (!response.ok) return;
     const campaigns = await response.json();
     
@@ -428,6 +427,7 @@ const campaigns = data.artists || [];
     <script>feather.replace();</script>
 </body>
 </html>
+
 
 
 
