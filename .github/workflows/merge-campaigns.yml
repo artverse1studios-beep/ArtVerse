@@ -13,35 +13,33 @@ jobs:
       - uses: actions/checkout@v4
       - name: Merge YAML to JSON
         run: |
-          python -c "
-import os
-import yaml
-import json
-from pathlib import Path
+          import os
+          import yaml
+          import json
+          from pathlib import Path
 
-dir_path = Path('data/campaigns')
-campaigns = []
+          dir_path = Path('data/campaigns')
+          campaigns = []
 
-if dir_path.exists():
-  for file_path in dir_path.iterdir():
-    if file_path.suffix in ['.yml', '.yaml']:
-      with open(file_path, 'r') as f:
-        data = yaml.safe_load(f)
-        if data:
-          campaigns.append(data)
+          if dir_path.exists():
+            for file_path in dir_path.iterdir():
+              if file_path.suffix in ['.yml', '.yaml']:
+                with open(file_path, 'r') as f:
+                  data = yaml.safe_load(f)
+                  if data:
+                    campaigns.append(data)
 
-json_path = Path('data/campaigns.json')
-new_json = json.dumps(campaigns, indent=2) + '\n'
+          json_path = Path('data/campaigns.json')
+          new_json = json.dumps(campaigns, indent=2) + '\n'
 
-if json_path.exists():
-  old_json = json_path.read_text()
-  if old_json == new_json:
-    print('No changes in JSON - skipping commit')
-    exit(0)
+          if json_path.exists():
+            old_json = json_path.read_text()
+            if old_json == new_json:
+              print('No changes in JSON - skipping commit')
+              exit(0)
 
-json_path.write_text(new_json)
-print('JSON updated')
-          "
+          json_path.write_text(new_json)
+          print('JSON updated')
       - name: Commit JSON if changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
