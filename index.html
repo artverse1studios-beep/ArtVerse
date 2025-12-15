@@ -158,11 +158,10 @@
                 </a>
             </div>
         </section>
-        <!--CAMPAIGNS  -->
-            <!-- Campaigns Section: Elegant artist grid with fade-in, bold names, accent buttons -->
+      <!-- CAMPAIGNS SECTION HTML -->
 <section id="campaigns" class="py-20 bg-gradient-to-b from-white to-gray-50">
   <div class="container mx-auto px-6 max-w-7xl">
-    <h2 class="text-5xl font-black text-center mb-6 text-gray-900 tracking-tight">CAMPAIGNS</h2>
+    <h2 class="text-5xl font-black text-center mb-6 text-gray-900 tracking-tight">Campaigns</h2>
     <p class="text-center text-xl mb-16 text-gray-600 max-w-3xl mx-auto">Discover our global collaborations with innovative artists blending traditional and digital NFT creations.</p>
     
     <div id="campaigns-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -374,11 +373,22 @@
 
     </div>
     <!--new added scripts   -->
-    <script>
+   <!-- Load the Marked library first to parse markdown descriptions -->
+<script src="cdn.jsdelivr.net"></script>
+
+<script>
   async function loadCampaigns() {
-      const campaigns = await response.json();
-    if (!response.ok) return;
-    const campaigns = await response.json();
+    // 1. Fetch the data from the JSON file
+    const response = await fetch('/data/campaigns.json'); 
+    
+    if (!response.ok) {
+        console.error('Failed to fetch campaigns:', response.statusText);
+        document.getElementById('campaigns-grid').innerHTML = '<p class="text-center col-span-full text-red-500">Could not load campaigns.</p>';
+        return; // Stop execution if fetch fails
+    }
+
+    // 2. Parse the JSON response
+    const campaigns = await response.json(); 
     
     const container = document.getElementById('campaigns-grid');
     const seeMoreBtn = document.getElementById('see-more-btn');
@@ -390,7 +400,7 @@
         const card = document.createElement('div');
         card.className = 'bg-white rounded-3xl shadow-2xl overflow-hidden opacity-0 transform translate-y-8 transition-all duration-700 ease-out';
         card.innerHTML = `
-          <img src="$$ {c.picture}" alt=" $${c.artist_name}" class="w-full h-96 object-cover">
+          <img src="${c.picture}" alt="${c.artist_name}" class="w-full h-96 object-cover">
           <div class="p-8">
             <h3 class="text-3xl font-black mb-4 text-gray-900">${c.artist_name}</h3>
             <div class="prose text-gray-700 mb-6 leading-relaxed">${marked.parse(c.intro || '')}</div>
@@ -399,7 +409,7 @@
         `;
         container.appendChild(card);
         
-        // Fade-in stagger
+        // Fade-in stagger for visual effect
         setTimeout(() => {
           card.classList.remove('opacity-0', 'translate-y-8');
           card.classList.add('opacity-100', 'translate-y-0');
@@ -407,26 +417,29 @@
       });
     }
     
-    // Show first 5 with animation
+    // Initial render: Show first 5 with animation
     renderCards(campaigns.slice(0, 5));
     
+    // Set up "See More" button logic
     if (campaigns.length > 5) {
       seeMoreBtn.addEventListener('click', () => {
-        renderCards(campaigns);
-        seeMoreContainer.style.display = 'none';
+        renderCards(campaigns); // Show all when clicked
+        seeMoreContainer.style.display = 'none'; // Hide the button
       });
     } else {
-      seeMoreContainer.style.display = 'none';
+      seeMoreContainer.style.display = 'none'; // Hide button if less than 5 items
     }
   }
+  
+  // Start the process when the page loads
   loadCampaigns();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- new stops here -->
     <script src="script.js"></script>
     <script>feather.replace();</script>
 </body>
 </html>
+
 
 
 
