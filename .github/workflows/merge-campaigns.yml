@@ -1,15 +1,12 @@
 name: Merge Campaigns to JSON
-
 on:
   push:
     branches: [main]
     paths:
       - 'data/campaigns/**'
-
 # Add this permissions block:
 permissions:
   contents: write
-
 jobs:
   merge:
     runs-on: ubuntu-latest
@@ -19,22 +16,48 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install js-yaml
-        run: npm install js-yaml
-      - name: Merge YAML to JSON
+      - name: Merge MD Tables to JSON
         run: |
           node -e "
             const fs = require('fs');
             const path = require('path');
-            const yaml = require('js-yaml');
             const dir = 'data/campaigns';
             const campaigns = [];
             if (fs.existsSync(dir)) {
               fs.readdirSync(dir).forEach(file => {
-                if (file.endsWith('.yml') || file.endsWith('.yaml')) {
+                if (file.endsWith('.md')) {
                   const filePath = path.join(dir, file);
-                  const data = yaml.load(fs.readFileSync(filePath, 'utf8'));
-                  if (data) campaigns.push(data);
+                  const content = fs.readFileSync(filePath, 'utf8');
+                  const lines = content.split('\n').map(l => l.trim());
+                  
+                  // Find table start (first | line)
+                  let tableStart = lines.findIndex(l => l.startsWith('|'));
+                  if (tableStart === -1) {
+                    console.log('No table found in ' + file);
+                    return;
+                  }
+                  
+                  // Extract headers (split by |, trim, filter empty)
+                  const headers = lines[tableStart].split('|').map(h => h.trim()).filter(Boolean);
+                  
+                  // Skip separator line (assume next is --- or similar)
+                  let rowIndex = tableStart + 2; // Skip header and separator
+                  
+                  // Parse data rows
+                  while (rowIndex < lines.length && lines[rowIndex].startsWith('|')) {
+                    const values = lines[rowIndex].split('|').map(v => v.trim()).filter(Boolean);
+                    if (values.length === headers.length) {
+                      const obj = {};
+                      headers.forEach((header, i) => {
+                        obj[header] = values[i];
+                      });
+                      campaigns.push(obj);
+                    } else {
+                      console.log('Skipping invalid row in ' + file + ': ' + lines[rowIndex]);
+                    }
+                    rowIndex++;
+                  }
+                  console.log('Parsed ' + (rowIndex - tableStart - 2) + ' rows from ' + file);
                 }
               });
             }
@@ -48,6 +71,7 @@ jobs:
               }
             }
             fs.writeFileSync(jsonPath, newJson);
+            console.log('Wrote ' + campaigns.length + ' campaigns to ' + jsonPath);
           "
       - name: Commit JSON if changed
         uses: stefanzweifel/git-auto-commit-action@v5
