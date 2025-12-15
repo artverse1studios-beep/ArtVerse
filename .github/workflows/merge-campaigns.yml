@@ -15,22 +15,29 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Install js-yaml
+        run: npm install js-yaml
       - name: Merge YAML to JSON
         run: |
-          npm install js-yaml
           node -e "
             const fs = require('fs');
             const yaml = require('js-yaml');
             const campaigns = [];
-            fs.readdirSync('data/campaigns').forEach(file => {
-              if (file.endsWith('.yml')) {
-                const data = yaml.load(fs.readFileSync('data/campaigns/' + file, 'utf8'));
-                campaigns.push(data);
-              }
-            });
-            fs.writeFileSync('data/campaigns.json', JSON.stringify(campaigns, null, 2));
+            const dir = 'data/campaigns';
+            if (fs.existsSync(dir)) {
+              fs.readdirSync(dir).forEach(file => {
+                if (file.endsWith('.yml') || file.endsWith('.yaml')) {
+                  const data = yaml.load(fs.readFileSync(`${dir}/${file}`, 'utf8'));
+                  if (data) campaigns.push(data);
+                }
+              });
+            }
+            fs.writeFileSync('data/campaigns.json', JSON.stringify(campaigns.sort((a,b) => (b.artist_name || '').localeCompare(a.artist_name || '')), null, 2));
           "
-      - name: Commit JSON
+      - name: Commit JSON (skip if no changes)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Auto-merge campaigns to JSON
+          file_pattern: data/campaigns.json
+          skip_fetch: true
+          skip_checkout: true
