@@ -1,0 +1,53 @@
+name: Merge Campaigns to JSON
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/campaigns/**'
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install js-yaml
+        run: npm install js-yaml
+      - name: Merge YAML to JSON
+        run: |
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+            const yaml = require('js-yaml');
+            const dir = 'data/campaigns';
+            const campaigns = [];
+            if (fs.existsSync(dir)) {
+              fs.readdirSync(dir).forEach(file => {
+                if (file.endsWith('.yml') || file.endsWith('.yaml')) {
+                  const filePath = path.join(dir, file);
+                  const data = yaml.load(fs.readFileSync(filePath, 'utf8'));
+                  if (data) campaigns.push(data);
+                }
+              });
+            }
+            const jsonPath = 'data/campaigns.json';
+            const newJson = JSON.stringify(campaigns, null, 2) + '\n';
+            if (fs.existsSync(jsonPath)) {
+              const oldJson = fs.readFileSync(jsonPath, 'utf8');
+              if (oldJson === newJson) {
+                console.log('No changes in JSON');
+                process.exit(0);
+              }
+            }
+            fs.writeFileSync(jsonPath, newJson);
+          "
+      - name: Commit JSON if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Auto-merge campaigns to JSON
+          file_pattern: data/campaigns.json
+          commit_options: '--no-verify'
