@@ -3,7 +3,7 @@ collections:
     label: Featured Artists
     folder: data/campaigns
     create: true
-    fields:
+    fields: 
       - { label: "Artist Name", name: "artist_name", widget: "string" }
       - { label: "Intro Bio", name: "intro", widget: "text" }  # Textarea for short bio
       - { label: "Instagram Link", name: "instagram_link", widget: "string" }
