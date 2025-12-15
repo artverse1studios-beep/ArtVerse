@@ -6,6 +6,10 @@ on:
     paths:
       - 'data/campaigns/**'
 
+# Add this permissions block:
+permissions:
+  contents: write
+
 jobs:
   merge:
     runs-on: ubuntu-latest
