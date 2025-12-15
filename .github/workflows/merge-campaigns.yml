@@ -11,33 +11,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Install js-yaml
-        run: npm install js-yaml
       - name: Merge YAML to JSON
         run: |
-          node -e "
-            const fs = require('fs');
-            const yaml = require('js-yaml');
-            const campaigns = [];
-            const dir = 'data/campaigns';
-            if (fs.existsSync(dir)) {
-              fs.readdirSync(dir).forEach(file => {
-                if (file.endsWith('.yml') || file.endsWith('.yaml')) {
-                  const data = yaml.load(fs.readFileSync(`${dir}/${file}`, 'utf8'));
-                  if (data) campaigns.push(data);
-                }
-              });
-            }
-            fs.writeFileSync('data/campaigns.json', JSON.stringify(campaigns.sort((a,b) => (b.artist_name || '').localeCompare(a.artist_name || '')), null, 2));
+          python -c "
+import os
+import yaml
+import json
+from pathlib import Path
+
+dir_path = Path('data/campaigns')
+campaigns = []
+
+if dir_path.exists():
+  for file_path in dir_path.iterdir():
+    if file_path.suffix in ['.yml', '.yaml']:
+      with open(file_path, 'r') as f:
+        data = yaml.safe_load(f)
+        if data:
+          campaigns.append(data)
+
+json_path = Path('data/campaigns.json')
+new_json = json.dumps(campaigns, indent=2) + '\n'
+
+if json_path.exists():
+  old_json = json_path.read_text()
+  if old_json == new_json:
+    print('No changes in JSON - skipping commit')
+    exit(0)
+
+json_path.write_text(new_json)
+print('JSON updated')
           "
-      - name: Commit JSON (skip if no changes)
+      - name: Commit JSON if changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Auto-merge campaigns to JSON
           file_pattern: data/campaigns.json
-          skip_fetch: true
-          skip_checkout: true
