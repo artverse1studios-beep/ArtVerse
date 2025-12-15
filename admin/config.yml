@@ -3,6 +3,8 @@ backend:
   repo: artverse1studios-beep/ArtVerse
   branch: main
   base_url: https://cms-auth.artverse1-studios.workers.dev/
+
+  
 media_folder: "images/campaigns"
 public_folder: "/images/campaigns"
 
