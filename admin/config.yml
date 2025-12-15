@@ -10,14 +10,10 @@ public_folder: "/images/campaigns"
 collections:
   - name: "artists"
     label: "Featured Artists"
-    files:
-      - file: "data/campaigns.json"
-        label: "Artists List"
-        name: "campaigns"
-        fields:
-          - { label: "Artists", name: "artists", widget: "list", fields:
-              - { label: "Artist Name", name: "artist_name", widget: "string" }
-              - { label: "Intro Bio", name: "intro", widget: "markdown" }
-              - { label: "Instagram Link", name: "instagram_link", widget: "string" }
-              - { label: "Picture", name: "picture", widget: "image" }
-            }
+    folder: "data/campaigns"
+    create: true
+    fields:
+      - { label: "Artist Name", name: "artist_name", widget: "string" }
+      - { label: "Intro Bio", name: "intro", widget: "markdown" }
+      - { label: "Instagram Link", name: "instagram_link", widget: "string" }
+      - { label: "Picture", name: "picture", widget: "image", required: true }
